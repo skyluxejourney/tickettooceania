@@ -1,29 +1,14 @@
 import type { Metadata } from 'next';
 import './globals.css';
-import { Inter, Plus_Jakarta_Sans, DM_Sans, Outfit } from 'next/font/google';
+import { Questrial } from 'next/font/google';
 
-// Primary font - Clean, modern sans-serif (similar to Qatar Airways)
-const headingFont = Outfit({
-  variable: '--font-heading',
+// Primary font - Questrial (clean, modern sans-serif)
+const questrialFont = Questrial({
+  variable: '--font-questrial',
   subsets: ['latin'],
   display: 'swap',
-  weight: ['300', '400', '500', '600', '700'],
+  weight: ['400'],
 });
-
-// Secondary font - Clean body text
-const bodyFont = DM_Sans({
-  variable: '--font-body',
-  subsets: ['latin'],
-  display: 'swap',
-  weight: ['300', '400', '500', '600', '700'],
-});
-
-// Alternative: If you prefer Inter for body
-// const bodyFont = Inter({
-//   variable: '--font-body',
-//   subsets: ['latin'],
-//   display: 'swap',
-// });
 
 export const metadata: Metadata = {
   title: 'TicketToOceania | Luxury Travel & Holiday Packages',
@@ -53,9 +38,9 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${headingFont.variable} ${bodyFont.variable} h-full antialiased`}
+      className={`${questrialFont.variable} h-full antialiased`}
     >
-      <body className="min-h-full bg-white text-gray-900 flex flex-col">
+      <body className="min-h-full bg-white text-gray-900 flex flex-col font-questrial">
         {children}
       </body>
     </html>

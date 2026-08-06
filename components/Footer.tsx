@@ -55,7 +55,7 @@ export default function Footer() {
 
   return (
     <>
-      <footer className="bg-[#F8F5EF] text-[#0A1628]/80">
+      <footer className="bg-[#f5f7fa] text-[#111822]/80">
         {/* Main Footer */}
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-20">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-10 lg:gap-12">
@@ -72,25 +72,25 @@ export default function Footer() {
                   />
                 </div>
                 <div>
-                  <h2 className="text-xl font-bold text-[#0A1628] tracking-wide font-heading italic">
+                  <h2 className="text-xl font-bold text-[#111822] tracking-wide font-heading italic">
                     {BRAND.name}
                   </h2>
-                  <p className="text-xs text-[#1A3A6B] font-medium tracking-wider uppercase">
+                  <p className="text-xs text-[#111822] font-medium tracking-wider uppercase">
                     {BRAND.tagline}
                   </p>
                 </div>
               </div>
-              <p className="text-sm text-[#0A1628]/60 leading-relaxed mb-4 max-w-xs">
+              <p className="text-sm text-[#111822]/60 leading-relaxed mb-4 max-w-xs">
                 Your trusted partner for unforgettable travel experiences across Asia and beyond. We help
                 you discover the world with ease and comfort.
               </p>
-              <div className="flex items-center gap-3 text-sm text-[#0A1628]/60">
+              <div className="flex items-center gap-3 text-sm text-[#111822]/60">
                 <div className="flex items-center gap-1">
-                  <Award size={14} className="text-[#1A3A6B]" />
+                  <Award size={14} className="text-[#111822]" />
                   <span>5 Years of Trust</span>
                 </div>
                 <div className="flex items-center gap-1">
-                  <Shield size={14} className="text-[#1A3A6B]" />
+                  <Shield size={14} className="text-[#111822]" />
                   <span>Secure Booking</span>
                 </div>
               </div>
@@ -98,9 +98,9 @@ export default function Footer() {
 
             {/* Quick Links */}
             <div>
-              <h3 className="text-[#0A1628] font-semibold text-lg mb-4 relative">
+              <h3 className="text-[#111822] font-semibold text-lg mb-4 relative">
                 Quick Links
-                <span className="absolute -bottom-1 left-0 w-8 h-0.5 bg-gradient-to-r from-[#1A3A6B] to-[#4A8BCF] rounded-full" />
+                <span className="absolute -bottom-1 left-0 w-8 h-0.5 bg-gradient-to-r from-[#111822] to-[#4a7ab5] rounded-full" />
               </h3>
               <ul className="space-y-2.5">
                 {quickLinks.map((link) => (
@@ -108,9 +108,9 @@ export default function Footer() {
                     <a
                       href={link.href}
                       onClick={(e) => handleLinkClick(e, link.name)}
-                      className="text-sm text-[#0A1628]/60 hover:text-[#1A3A6B] transition-colors duration-200 flex items-center gap-2 group cursor-pointer"
+                      className="text-sm text-[#111822]/60 hover:text-[#111822] transition-colors duration-200 flex items-center gap-2 group cursor-pointer"
                     >
-                      <span className="w-1 h-1 bg-[#1A3A6B]/40 rounded-full group-hover:bg-[#1A3A6B] transition-colors" />
+                      <span className="w-1 h-1 bg-[#111822]/40 rounded-full group-hover:bg-[#111822] transition-colors" />
                       {link.name}
                     </a>
                   </li>
@@ -120,18 +120,18 @@ export default function Footer() {
 
             {/* Top Airlines */}
             <div>
-              <h3 className="text-[#0A1628] font-semibold text-lg mb-4 relative">
+              <h3 className="text-[#111822] font-semibold text-lg mb-4 relative">
                 Top Airlines
-                <span className="absolute -bottom-1 left-0 w-8 h-0.5 bg-gradient-to-r from-[#1A3A6B] to-[#4A8BCF] rounded-full" />
+                <span className="absolute -bottom-1 left-0 w-8 h-0.5 bg-gradient-to-r from-[#111822] to-[#4a7ab5] rounded-full" />
               </h3>
               <ul className="space-y-2.5">
                 {topAirlines.map((airline) => (
                   <li key={airline.name}>
                     <Link
                       href={`/airlines/${airline.slug}`}
-                      className="text-sm text-[#0A1628]/60 hover:text-[#1A3A6B] transition-colors duration-200 flex items-center gap-2 group"
+                      className="text-sm text-[#111822]/60 hover:text-[#111822] transition-colors duration-200 flex items-center gap-2 group"
                     >
-                      <span className="w-1 h-1 bg-[#1A3A6B]/40 rounded-full group-hover:bg-[#1A3A6B] transition-colors" />
+                      <span className="w-1 h-1 bg-[#111822]/40 rounded-full group-hover:bg-[#111822] transition-colors" />
                       {airline.name}
                     </Link>
                   </li>
@@ -141,25 +141,25 @@ export default function Footer() {
 
             {/* Contact Us */}
             <div>
-              <h3 className="text-[#0A1628] font-semibold text-lg mb-4 relative">
+              <h3 className="text-[#111822] font-semibold text-lg mb-4 relative">
                 Contact Us
-                <span className="absolute -bottom-1 left-0 w-8 h-0.5 bg-gradient-to-r from-[#1A3A6B] to-[#4A8BCF] rounded-full" />
+                <span className="absolute -bottom-1 left-0 w-8 h-0.5 bg-gradient-to-r from-[#111822] to-[#4a7ab5] rounded-full" />
               </h3>
               <ul className="space-y-3.5">
-                <li className="flex items-start gap-3 text-sm text-[#0A1628]/60 hover:text-[#0A1628] transition-colors group">
-                  <Phone size={16} className="text-[#1A3A6B] flex-shrink-0 mt-0.5 group-hover:scale-110 transition-transform" />
+                <li className="flex items-start gap-3 text-sm text-[#111822]/60 hover:text-[#111822] transition-colors group">
+                  <Phone size={16} className="text-[#111822] flex-shrink-0 mt-0.5 group-hover:scale-110 transition-transform" />
                   <span>{CONTACT.phone}</span>
                 </li>
-                <li className="flex items-start gap-3 text-sm text-[#0A1628]/60 hover:text-[#0A1628] transition-colors group">
-                  <Mail size={16} className="text-[#1A3A6B] flex-shrink-0 mt-0.5 group-hover:scale-110 transition-transform" />
+                <li className="flex items-start gap-3 text-sm text-[#111822]/60 hover:text-[#111822] transition-colors group">
+                  <Mail size={16} className="text-[#111822] flex-shrink-0 mt-0.5 group-hover:scale-110 transition-transform" />
                   <span>{COMPANY.email}</span>
                 </li>
-                <li className="flex items-start gap-3 text-sm text-[#0A1628]/60 hover:text-[#0A1628] transition-colors group">
-                  <MapPin size={16} className="text-[#1A3A6B] flex-shrink-0 mt-0.5 group-hover:scale-110 transition-transform" />
+                <li className="flex items-start gap-3 text-sm text-[#111822]/60 hover:text-[#111822] transition-colors group">
+                  <MapPin size={16} className="text-[#111822] flex-shrink-0 mt-0.5 group-hover:scale-110 transition-transform" />
                   <span>{COMPANY.address}</span>
                 </li>
-                <li className="flex items-start gap-3 text-sm text-[#0A1628]/60 hover:text-[#0A1628] transition-colors group">
-                  <Clock size={16} className="text-[#1A3A6B] flex-shrink-0 mt-0.5 group-hover:scale-110 transition-transform" />
+                <li className="flex items-start gap-3 text-sm text-[#111822]/60 hover:text-[#111822] transition-colors group">
+                  <Clock size={16} className="text-[#111822] flex-shrink-0 mt-0.5 group-hover:scale-110 transition-transform" />
                   <span>{CONTACT.supportHours}</span>
                 </li>
               </ul>
@@ -167,13 +167,13 @@ export default function Footer() {
           </div>
 
           {/* Newsletter Section */}
-          <div className="mt-12 pt-8 border-t border-[#1A3A6B]/10">
+          <div className="mt-12 pt-8 border-t border-[#111822]/10">
             <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
               <div>
-                <h4 className="text-[#0A1628] font-semibold text-base">
+                <h4 className="text-[#111822] font-semibold text-base">
                   Subscribe to Our Newsletter
                 </h4>
-                <p className="text-sm text-[#0A1628]/40">
+                <p className="text-sm text-[#111822]/40">
                   Get the best travel deals straight to your inbox
                 </p>
               </div>
@@ -181,9 +181,9 @@ export default function Footer() {
                 <input
                   type="email"
                   placeholder="Enter your email"
-                  className="flex-1 sm:w-64 px-4 py-2.5 bg-white/80 border border-[#1A3A6B]/20 rounded-l-full text-[#0A1628] placeholder-[#0A1628]/30 focus:outline-none focus:border-[#1A3A6B] transition-colors text-sm"
+                  className="flex-1 sm:w-64 px-4 py-2.5 bg-white/80 border border-[#111822]/20 rounded-l-full text-[#111822] placeholder-[#111822]/30 focus:outline-none focus:border-[#111822] transition-colors text-sm"
                 />
-                <button className="px-5 py-2.5 bg-gradient-to-r from-[#1A3A6B] to-[#4A8BCF] hover:from-[#2B5A9E] hover:to-[#7BAEE0] text-white rounded-r-full font-semibold transition-all duration-300 flex items-center gap-2 text-sm whitespace-nowrap shadow-lg shadow-[#1A3A6B]/20">
+                <button className="px-5 py-2.5 bg-gradient-to-r from-[#111822] to-[#4a7ab5] hover:from-[#2a3a5a] hover:to-[#7ba0cc] text-white rounded-r-full font-semibold transition-all duration-300 flex items-center gap-2 text-sm whitespace-nowrap shadow-lg shadow-[#111822]/20">
                   <Send size={14} />
                   Subscribe
                 </button>
@@ -193,22 +193,22 @@ export default function Footer() {
         </div>
 
         {/* Bottom Bar */}
-        <div className="border-t border-[#1A3A6B]/10 bg-[#F8F5EF]/80">
+        <div className="border-t border-[#111822]/10 bg-[#f5f7fa]/80">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-4">
-            <div className="flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-[#0A1628]/40">
+            <div className="flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-[#111822]/40">
               <p>
                 &copy; {COMPANY.year} {COMPANY.name}. All rights reserved.
               </p>
               <div className="flex items-center gap-4">
-                <a href="#" className="hover:text-[#1A3A6B] transition-colors">
+                <a href="#" className="hover:text-[#111822] transition-colors">
                   Privacy Policy
                 </a>
-                <span className="w-px h-3 bg-[#1A3A6B]/10" />
-                <a href="#" className="hover:text-[#1A3A6B] transition-colors">
+                <span className="w-px h-3 bg-[#111822]/10" />
+                <a href="#" className="hover:text-[#111822] transition-colors">
                   Terms of Service
                 </a>
-                <span className="w-px h-3 bg-[#1A3A6B]/10" />
-                <a href="#" className="hover:text-[#1A3A6B] transition-colors">
+                <span className="w-px h-3 bg-[#111822]/10" />
+                <a href="#" className="hover:text-[#111822] transition-colors">
                   Cookie Policy
                 </a>
               </div>

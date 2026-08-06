@@ -11,7 +11,7 @@ export default function PageHero({
   title,
   subtitle,
   backgroundImage = "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?q=80&w=2074&auto=format&fit=crop",
-  overlayColor = "from-black/70 via-black/60 to-black/75",
+  overlayColor = "from-[#111822]/70 via-[#111822]/60 to-[#111822]/75",
 }: PageHeroProps) {
   return (
     <section className="relative min-h-[50vh] flex items-center overflow-hidden pt-20 sm:pt-24">
@@ -25,8 +25,8 @@ export default function PageHero({
         />
         {/* Dark Overlay */}
         <div className={`absolute inset-0 bg-gradient-to-b ${overlayColor}`} />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-black/30" />
-        <div className="absolute inset-0 bg-black/20" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#111822]/50 via-transparent to-[#111822]/30" />
+        <div className="absolute inset-0 bg-[#111822]/20" />
       </div>
 
       {/* Content */}

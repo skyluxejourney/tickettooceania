@@ -15,7 +15,7 @@ export default function AirlineHero({ airlineName }: AirlineHeroProps) {
       {/* Background Image with Clean Dark Overlay */}
       <div className="absolute inset-0 z-0">
         <Image
-          src="/images/herobackground.jpg"
+          src="/images/airlinesback.jpg"
           alt={`${airlineName} flights - ${BRAND.name}`}
           fill
           className="object-cover object-center"
@@ -33,7 +33,7 @@ export default function AirlineHero({ airlineName }: AirlineHeroProps) {
           <h1 className="mb-4 sm:mb-5">
             <span className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-[1.2] tracking-tight">
               Need Help With a{" "}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#4A8BCF] via-[#7BAEE0] to-[#4A8BCF] italic whitespace-nowrap">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#4a7ab5] via-[#7ba0cc] to-[#4a7ab5] italic whitespace-nowrap">
                 {airlineName}
               </span>
               <span className="text-white"> Airlines</span>

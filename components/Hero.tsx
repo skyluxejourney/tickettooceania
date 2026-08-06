@@ -10,7 +10,7 @@ export default function Hero() {
       {/* Background Image with Clean Dark Overlay */}
       <div className="absolute inset-0 z-0">
         <Image
-          src="/images/herobackground.jpg"
+          src="/images/herobackimage.jpg"
           alt="Ticket to Ocean - Travel Experiences"
           fill
           className="object-cover object-center"
@@ -24,7 +24,7 @@ export default function Hero() {
       </div>
 
       {/* Premium Texture Overlay */}
-      <div className="absolute inset-0 z-0 opacity-[0.02] bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCIgdmlld0JveD0iMCAwIDYwIDYwIj48ZyBmaWxsPSIjZmZmIj48cGF0aCBkPSJNMzYgMzRjMCAxLjEgLjkgMiAyIDJzMi0uOSAyLTItLjktMi0yLTIgLTIgLjktMiAyei0xMiA0YzAgMS4xLjkgMiAyIDJzMi0uOSAyLTItLjktMi0yLTIgLTIgLjktMiAyeiIvPjwvZz48L3N2Zz4=')]" />
+      <div className="absolute inset-0 z-0 opacity-[0.02] bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCIgdmlld0JveD0iMCAwIDYwIDYwIj48ZyBmaWxsPSIjZmZmIj48cGF0aCBkPSJNMzYgMzRjMCAxLjEuOSAyIDIgMnMyLS45IDItMi0uOS0yLTItMiAtMiAuOS0yIDJ6LTEyIDRjMCAxLjEuOSAyIDIgMnMyLS45IDItMi0uOS0yLTItMiAtMiAuOS0yIDJ6Ii8+PC9nPjwvc3ZnPg==')]" />
 
       {/* Content */}
       <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
@@ -35,10 +35,10 @@ export default function Hero() {
               Discover the World's
             </span>
             <span className="relative inline-block">
-              <span className="relative z-10 text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#4A8BCF] via-[#7BAEE0] to-[#4A8BCF] leading-[1.1] tracking-tight italic">
+              <span className="relative z-10 text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#4a7ab5] via-[#7ba0cc] to-[#4a7ab5] leading-[1.1] tracking-tight italic">
                 Best Travel Experiences
               </span>
-              <span className="absolute -bottom-0.5 left-0 w-full h-1 bg-gradient-to-r from-[#4A8BCF]/50 to-[#4A8BCF]/10 rounded-full blur-sm" />
+              <span className="absolute -bottom-0.5 left-0 w-full h-1 bg-gradient-to-r from-[#4a7ab5]/50 to-[#4a7ab5]/10 rounded-full blur-sm" />
             </span>
           </h1>
 
@@ -57,7 +57,7 @@ export default function Hero() {
       </div>
 
       {/* Scroll Indicator - Positioned at bottom of section */}
-      <div className="absolute bottom-2 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1.5 text-white/25 hover:text-[#4A8BCF]/50 transition-colors cursor-pointer z-10">
+      <div className="absolute bottom-2 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1.5 text-white/25 hover:text-[#4a7ab5]/50 transition-colors cursor-pointer z-10">
         <div className="w-4 h-6 border border-white/15 rounded-full flex justify-center p-1">
           <div className="w-0.5 h-1.5 bg-white/40 rounded-full animate-bounce" />
         </div>
