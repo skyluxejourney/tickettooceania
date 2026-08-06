@@ -152,7 +152,7 @@ export default function SearchEngine() {
     const selected = isDepart ? selectedDepartDate : selectedReturnDate;
 
     return (
-      <div className="bg-white  shadow-2xl p-4 w-80 z-[9999] relative border border-[#E2E8F0]">
+      <div className="bg-white shadow-2xl p-4 w-80 z-[9999] relative border border-[#E2E8F0]">
         {/* Header with "Choose the Departure" or "Choose the Return" */}
         <div className="text-center mb-3">
           <span className="text-xs font-semibold text-[#111822] tracking-wider uppercase">
@@ -218,9 +218,12 @@ export default function SearchEngine() {
                 disabled={isPast}
                 className={`
                   h-8 w-full rounded-full text-sm font-medium transition-all duration-200
-                  ${isPast ? 'text-gray-300 cursor-not-allowed line-through' : 'hover:bg-[#f5f7fa]'}
+                  ${isPast 
+                    ? 'text-gray-300 cursor-not-allowed line-through' 
+                    : 'text-[#111822] hover:bg-[#f5f7fa]'
+                  }
                   ${isSelected ? 'bg-gradient-to-r from-[#111822] to-[#4a7ab5] text-white hover:from-[#2a3a5a] hover:to-[#7ba0cc]' : ''}
-                  ${isToday && !isSelected ? 'border-2 border-[#4a7ab5] text-[#111822] font-bold' : ''}
+                  ${isToday && !isSelected ? 'border-2 border-[#4a7ab5] font-bold' : ''}
                 `}
               >
                 {day}
@@ -233,7 +236,7 @@ export default function SearchEngine() {
   };
 
   return (
-    <div className="bg-white  shadow-2xl max-w-6xl mx-auto p-4 relative z-[100] border border-[#E2E8F0]">
+    <div className="bg-white shadow-2xl max-w-6xl mx-auto p-4 relative z-[100] border border-[#E2E8F0]">
       {/* Trip Type Toggle */}
       <div className="flex items-center gap-1 mb-4">
         <button
@@ -283,7 +286,7 @@ export default function SearchEngine() {
               setShowLeavingHints(true);
             }}
             onFocus={() => setShowLeavingHints(true)}
-            className="w-full bg-[#f5f7fa] border border-[#E2E8F0]  pl-10 pr-8 py-3 text-[#111822] placeholder-[#94A3B8] focus:outline-none focus:border-[#111822] focus:ring-2 focus:ring-[#111822]/20 transition-all duration-300 text-sm h-[52px]"
+            className="w-full bg-[#f5f7fa] border border-[#E2E8F0] pl-10 pr-8 py-3 text-[#111822] placeholder-[#94A3B8] focus:outline-none focus:border-[#111822] focus:ring-2 focus:ring-[#111822]/20 transition-all duration-300 text-sm h-[52px]"
           />
           {leavingFrom && (
             <button
@@ -298,7 +301,7 @@ export default function SearchEngine() {
           )}
           {/* Hints Dropdown - Wider */}
           {showLeavingHints && filteredLeaving.length > 0 && (
-            <div className="absolute bottom-full left-0 w-[280px] mb-1 bg-white  shadow-lg border border-[#E2E8F0] max-h-52 overflow-y-auto z-[9999] custom-scrollbar">
+            <div className="absolute bottom-full left-0 w-[280px] mb-1 bg-white shadow-lg border border-[#E2E8F0] max-h-52 overflow-y-auto z-[9999] custom-scrollbar">
               {filteredLeaving.map((loc) => (
                 <button
                   key={loc.code}
@@ -342,7 +345,7 @@ export default function SearchEngine() {
               setShowDepartingHints(true);
             }}
             onFocus={() => setShowDepartingHints(true)}
-            className="w-full bg-[#f5f7fa] border border-[#E2E8F0]  pl-10 pr-8 py-3 text-[#111822] placeholder-[#94A3B8] focus:outline-none focus:border-[#111822] focus:ring-2 focus:ring-[#111822]/20 transition-all duration-300 text-sm h-[52px]"
+            className="w-full bg-[#f5f7fa] border border-[#E2E8F0] pl-10 pr-8 py-3 text-[#111822] placeholder-[#94A3B8] focus:outline-none focus:border-[#111822] focus:ring-2 focus:ring-[#111822]/20 transition-all duration-300 text-sm h-[52px]"
           />
           {departingTo && (
             <button
@@ -357,7 +360,7 @@ export default function SearchEngine() {
           )}
           {/* Hints Dropdown - Wider */}
           {showDepartingHints && filteredDeparting.length > 0 && (
-            <div className="absolute bottom-full left-0 w-[280px] mb-1 bg-white  shadow-lg border border-[#E2E8F0] max-h-52 overflow-y-auto z-[9999] custom-scrollbar">
+            <div className="absolute bottom-full left-0 w-[280px] mb-1 bg-white shadow-lg border border-[#E2E8F0] max-h-52 overflow-y-auto z-[9999] custom-scrollbar">
               {filteredDeparting.map((loc) => (
                 <button
                   key={loc.code}
@@ -397,7 +400,7 @@ export default function SearchEngine() {
               setShowDepartCalendar(!showDepartCalendar);
               setShowReturnCalendar(false);
             }}
-            className="w-full lg:w-45 bg-[#f5f7fa] border border-[#E2E8F0]  pl-10 pr-8 py-3 text-[#111822] text-left focus:outline-none focus:border-[#111822] focus:ring-2 focus:ring-[#111822]/20 transition-all duration-300 text-sm h-[52px]"
+            className="w-full lg:w-45 bg-[#f5f7fa] border border-[#E2E8F0] pl-10 pr-8 py-3 text-[#111822] text-left focus:outline-none focus:border-[#111822] focus:ring-2 focus:ring-[#111822]/20 transition-all duration-300 text-sm h-[52px]"
           >
             {departDate ? formatDisplayDate(departDate) : <span className="text-[#94A3B8]">Departure Date</span>}
           </button>
@@ -431,7 +434,7 @@ export default function SearchEngine() {
                 setShowReturnCalendar(!showReturnCalendar);
                 setShowDepartCalendar(false);
               }}
-              className="w-full bg-[#f5f7fa] border border-[#E2E8F0]  pl-10 pr-8 py-3 text-[#111822] text-left focus:outline-none focus:border-[#111822] focus:ring-2 focus:ring-[#111822]/20 transition-all duration-300 text-sm h-[52px]"
+              className="w-full bg-[#f5f7fa] border border-[#E2E8F0] pl-10 pr-8 py-3 text-[#111822] text-left focus:outline-none focus:border-[#111822] focus:ring-2 focus:ring-[#111822]/20 transition-all duration-300 text-sm h-[52px]"
             >
               {returnDate ? formatDisplayDate(returnDate) : <span className="text-[#94A3B8]">Return Date</span>}
             </button>
@@ -462,14 +465,14 @@ export default function SearchEngine() {
           </div>
           <button
             onClick={() => setShowPassengerDropdown(!showPassengerDropdown)}
-            className="w-full bg-[#f5f7fa] border border-[#E2E8F0]  pl-10 pr-8 py-3 text-[#111822] text-left focus:outline-none focus:border-[#111822] focus:ring-2 focus:ring-[#111822]/20 transition-all duration-300 text-sm h-[52px] flex items-center"
+            className="w-full bg-[#f5f7fa] border border-[#E2E8F0] pl-10 pr-8 py-3 text-[#111822] text-left focus:outline-none focus:border-[#111822] focus:ring-2 focus:ring-[#111822]/20 transition-all duration-300 text-sm h-[52px] flex items-center"
           >
             <span>{passengerCount} {passengerCount === 1 ? 'Passenger' : 'Passengers'}</span>
           </button>
 
           {/* Passenger Dropdown */}
           {showPassengerDropdown && (
-            <div className="absolute bottom-full left-0 mb-1 bg-white  shadow-lg border border-[#E2E8F0] p-4 w-56 z-[9999]">
+            <div className="absolute bottom-full left-0 mb-1 bg-white shadow-lg border border-[#E2E8F0] p-4 w-56 z-[9999]">
               <div className="flex items-center justify-between">
                 <span className="text-sm font-medium text-[#111822]">Passengers</span>
                 <div className="flex items-center gap-3">
@@ -499,7 +502,7 @@ export default function SearchEngine() {
           <button
             onClick={handleSearch}
             disabled={isLoading}
-            className={`w-full bg-gradient-to-r from-[#111822] to-[#4a7ab5] text-white  transition-all duration-300 flex items-center justify-center h-[52px] px-6 ${
+            className={`w-full bg-gradient-to-r from-[#111822] to-[#4a7ab5] text-white transition-all duration-300 flex items-center justify-center h-[52px] px-6 ${
               isLoading 
                 ? 'opacity-80 cursor-not-allowed' 
                 : 'hover:from-[#2a3a5a] hover:to-[#7ba0cc] hover:scale-[1.02] active:scale-95 shadow-lg shadow-[#111822]/30 hover:shadow-[#111822]/40'
