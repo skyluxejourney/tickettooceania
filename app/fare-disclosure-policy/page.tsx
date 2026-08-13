@@ -388,142 +388,111 @@ export default function FareDisclosurePolicyPage() {
   return (
     <>
       <Header />
-      <div className="min-h-screen bg-white pt-16 sm:pt-20">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-10">
+      <div className="min-h-screen bg-white pt-20">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-10">
           {/* Breadcrumb */}
-          <nav className="flex items-center gap-2 text-xs sm:text-sm mb-4 sm:mb-6">
-            <NextLink href="/" className="transition-colors" style={{ color: '#111822' }}>
+          <nav className="flex items-center gap-2 text-sm mb-6">
+            <NextLink href="/" className="text-[#4a7ab5] hover:text-[#7ba0cc] transition-colors">
               Home
             </NextLink>
             <span className="text-[#111822]/30">›</span>
             <span className="text-[#111822]/60">Fare Disclosure</span>
           </nav>
 
-          {/* Full width container */}
-          <div className="w-full">
+          <div className="max-w-4xl mx-auto">
             {/* Header Section */}
-            <div className="mb-6 sm:mb-8">
-              <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold leading-tight" style={{ color: '#111822' }}>
+            <div className="mb-8">
+              <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#111822] leading-tight">
                 Fare Disclosure
               </h1>
-              <div 
-                className="w-10 sm:w-12 h-0.5 sm:h-1 mt-2 sm:mt-3 rounded-full"
-                style={{
-                  background: `linear-gradient(to right, #111822, #4a7ab5)`
-                }}
-              />
+              <p className="text-sm text-[#111822]/60 mt-2 text-justify">
+                This Fare Disclosure explains how pricing is presented on {BRAND.name}, what an advertised or displayed fare may include, what may be excluded, why airline prices can change, how online and assisted-booking prices may differ, and what customers should verify before authorizing payment.
+              </p>
+              <div className="w-12 h-1 bg-gradient-to-r from-[#111822] to-[#4a7ab5] rounded-full mt-3" />
             </div>
 
             {/* Sections */}
             {sections.map((section, index) => {
               const Icon = section.icon;
-              const isTwoColumn = section.twoColumn;
-              
               return (
-                <div key={index} className="mt-6 sm:mt-8">
-                  {/* Heading with icon */}
-                  <div className="flex items-center gap-2 sm:gap-3 mb-2 sm:mb-3">
-                    <div 
-                      className="w-7 h-7 sm:w-8 sm:h-8 rounded-full flex items-center justify-center flex-shrink-0"
-                      style={{ backgroundColor: '#e8edf4' }}
-                    >
-                      <Icon size={16} className="sm:w-4 sm:h-4" style={{ color: '#4a7ab5' }} />
+                <div key={index} className="mt-8">
+                  <div className="flex items-start gap-3 mb-3">
+                    <div className="w-8 h-8 rounded-full bg-[#e8edf4] flex items-center justify-center flex-shrink-0 mt-0.5">
+                      <Icon size={16} className="text-[#4a7ab5]" />
                     </div>
-                    <h2 className="text-sm sm:text-base lg:text-xl font-bold leading-tight" style={{ color: '#111822' }}>
+                    <h2 className="text-lg sm:text-xl font-bold text-[#111822]">
                       {section.title}
                     </h2>
                   </div>
-                  
-                  {/* Content */}
-                  <div className="w-full text-sm sm:text-base lg:text-base leading-relaxed text-justify">
-                    {Array.isArray(section.content) ? (
-                      <div className={isTwoColumn ? "grid grid-cols-1 md:grid-cols-2 gap-x-4 sm:gap-x-6 gap-y-2 sm:gap-y-3 w-full" : "space-y-2 sm:space-y-3 w-full"}>
-                        {section.content.map((paragraph, pIndex) => {
-                          if (paragraph === "") {
-                            return <div key={pIndex} className="h-1 sm:h-2 col-span-2" />;
-                          }
-
-                          if (paragraph.startsWith("•")) {
-                            return (
-                              <div key={pIndex} className="flex items-start gap-2 w-full col-span-2 md:col-span-1 text-justify">
-                                <div 
-                                  className="w-1.5 h-1.5 rounded-full mt-1.5 sm:mt-2 flex-shrink-0"
-                                  style={{ backgroundColor: '#4a7ab5' }}
-                                />
-                                <span className="leading-relaxed text-sm sm:text-base flex-1" style={{ color: '#111822/60' }}>
-                                  {paragraph.substring(2)}
-                                </span>
-                              </div>
-                            );
-                          }
-
-                          if (paragraph.startsWith("Component:") || paragraph.startsWith("Fare Component:")) {
-                            return (
-                              <p key={pIndex} className="w-full col-span-2 leading-relaxed text-sm sm:text-base font-semibold" style={{ color: '#111822' }}>
-                                {paragraph}
-                              </p>
-                            );
-                          }
-
-                          if (paragraph === "↓") {
-                            return (
-                              <p key={pIndex} className="w-full col-span-2 text-center text-sm sm:text-base" style={{ color: '#4a7ab5' }}>
-                                {paragraph}
-                              </p>
-                            );
-                          }
-
-                          return (
-                            <p key={pIndex} className="w-full col-span-2 leading-relaxed text-sm sm:text-base" style={{ color: '#111822/60' }}>
-                              {paragraph}
-                            </p>
-                          );
-                        })}
-                      </div>
-                    ) : (
-                      <div className="w-full overflow-x-auto overflow-y-hidden">
-                        <div className="min-w-[640px] sm:min-w-0">
-                          {section.content}
-                        </div>
-                      </div>
-                    )}
+                  <div className="space-y-3 text-sm sm:text-base text-[#111822]/70 leading-relaxed ml-11">
+                    {section.content.map((paragraph, pIndex) => {
+                      // Check if paragraph starts with "•" to render as list item
+                      if (paragraph.startsWith("•")) {
+                        return (
+                          <div key={pIndex} className="flex items-start gap-2 ml-4">
+                            <div className="w-1.5 h-1.5 rounded-full mt-2 flex-shrink-0 bg-[#4a7ab5]" />
+                            <span className="text-justify">{paragraph.substring(2)}</span>
+                          </div>
+                        );
+                      }
+                      // Check if paragraph is empty for spacing
+                      if (paragraph === "") {
+                        return <div key={pIndex} className="h-2" />;
+                      }
+                      // Check if paragraph is "↓" for arrow
+                      if (paragraph === "↓") {
+                        return (
+                          <p key={pIndex} className="text-center text-[#4a7ab5] font-bold">
+                            {paragraph}
+                          </p>
+                        );
+                      }
+                      // Check if paragraph starts with "Component:" or "Fare Component:"
+                      if (paragraph.startsWith("Component:") || paragraph.startsWith("Fare Component:")) {
+                        return (
+                          <p key={pIndex} className="text-justify font-semibold text-[#111822]">
+                            {paragraph}
+                          </p>
+                        );
+                      }
+                      // Check if paragraph is a table label
+                      if (paragraph.includes("Typically Controlled By:") || 
+                          paragraph.includes("Included in Core Fare Total?:") ||
+                          paragraph.includes("Explanation:")) {
+                        return (
+                          <p key={pIndex} className="text-justify text-[#111822]/80">
+                            {paragraph}
+                          </p>
+                        );
+                      }
+                      return <p key={pIndex} className="text-justify">{paragraph}</p>;
+                    })}
                   </div>
                 </div>
               );
             })}
 
             {/* Footer Note */}
-            <div className="mt-8 sm:mt-10 p-4 sm:p-6 rounded-lg" style={{ backgroundColor: '#f5f7fa' }}>
-              <p className="text-sm sm:text-base text-center" style={{ color: '#111822/60' }}>
-                {BRAND.name}
-              </p>
-              <p className="text-sm sm:text-base text-center" style={{ color: '#111822/60' }}>
-                Operated by Noam Flyers Inc.
-              </p>
+            <div className="mt-10 p-6 bg-[#f5f7fa] rounded-lg border border-[#E2E8F0]">
+              <div className="space-y-2 text-sm text-[#111822]/70 leading-relaxed">
+                <p className="font-semibold text-[#111822]">{BRAND.name}</p>
+                <p>Operated by Noam Flyers Inc.</p>
+              </div>
             </div>
 
             {/* Call to Action */}
-            <div 
-              className="mt-8 sm:mt-10 p-4 sm:p-6 rounded-lg text-white w-full"
-              style={{
-                background: `linear-gradient(to right, #111822, #4a7ab5)`
-              }}
-            >
-              <h3 className="text-base sm:text-lg lg:text-xl font-bold mb-1.5 sm:mb-2 !text-white">
+            <div className="mt-10 p-6 bg-gradient-to-r from-[#111822] to-[#4a7ab5] rounded-lg text-white">
+              <h3 className="text-lg sm:text-xl font-bold mb-2 !text-white">
                 Need Help With Your Travel Plans?
               </h3>
-              <p className="text-sm sm:text-base mb-3 sm:mb-4 text-white/80">
+              <p className="text-sm mb-4 !text-white/80">
                 Our travel experts are here to assist you with flight bookings, changes, and more.
               </p>
               <a
                 href={`tel:${CONTACT.phoneRaw}`}
-                className="inline-flex items-center gap-1.5 sm:gap-2 px-4 sm:px-5 py-2 sm:py-2.5 rounded-lg font-semibold transition-all duration-300 shadow-lg hover:scale-105 text-sm sm:text-base"
-                style={{
-                  backgroundColor: '#ffffff',
-                  color: '#111822'
-                }}
+                className="inline-flex items-center gap-2 bg-white text-[#111822] px-5 py-2.5 rounded-lg font-semibold hover:bg-[#e8edf4] transition-all duration-300 shadow-lg hover:scale-105"
               >
-                <Phone size={16} className="sm:w-4 sm:h-4" />
+                <Phone size={16} />
                 Call Us Now: {CONTACT.phone}
               </a>
             </div>
