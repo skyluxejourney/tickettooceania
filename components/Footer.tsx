@@ -9,6 +9,7 @@ import {
   Clock,
   Award,
   Shield,
+  AlertCircle,
 } from "lucide-react";
 import ContactModal from "./ContactModal";
 import Link from "next/link";
@@ -77,7 +78,7 @@ export default function Footer() {
     <>
       <footer className="bg-[#f5f7fa] text-[#111822]/80">
         {/* Main Footer */}
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-20">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:pt-20">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-10 lg:gap-12">
             
             {/* Brand & About */}
@@ -226,6 +227,32 @@ export default function Footer() {
                   Subscribe
                 </button>
               </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Disclaimer Section - Full Width */}
+        <div 
+          className="w-full"
+          style={{ 
+            backgroundColor: '#11182205', 
+            borderTop: '1px solid #1118221A', 
+            borderBottom: '1px solid #1118221A'
+          }}
+        >
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-3 sm:py-3.5">
+            <div className="flex items-start gap-2 sm:gap-3">
+              <AlertCircle className="w-4 h-4 sm:w-5 sm:h-5 flex-shrink-0 mt-0.5" style={{ color: '#111822' }} />
+              <p className="text-[10px] sm:text-xs leading-relaxed" style={{ color: '#11182299' }}>
+                <span className="font-semibold" style={{ color: '#111822' }}>Disclaimer:</span>{" "}
+                This Disclaimer governs the use of the website www.tickettooceania.com 
+                (the "Website"), operated by Noam Flyers Inc. ("Company," "we," "us," 
+                or "our"), a USA-registered travel company. Ticket to Oceania is an 
+                independent online travel agency and is not an airline. We are not 
+                affiliated with, owned by, or operated by any airline. Our role is to 
+                facilitate travel bookings and provide customers with access to available 
+                travel options from airlines and other travel service providers.
+              </p>
             </div>
           </div>
         </div>
