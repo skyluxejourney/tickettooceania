@@ -149,7 +149,7 @@ export default function DisclaimerPage() {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-10">
           {/* Breadcrumb */}
           <nav className="flex items-center gap-2 text-xs sm:text-sm mb-4 sm:mb-6">
-            <NextLink href="/" className="transition-colors" style={{ color: '#111822' }}>
+            <NextLink href="/" className="text-[#111822] hover:text-[#4a7ab5] transition-colors">
               Home
             </NextLink>
             <span className="text-[#111822]/30">›</span>
@@ -160,15 +160,10 @@ export default function DisclaimerPage() {
           <div className="w-full">
             {/* Header Section */}
             <div className="mb-6 sm:mb-8">
-              <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold leading-tight" style={{ color: '#111822' }}>
+              <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#111822] leading-tight">
                 Disclaimer
               </h1>
-              <div 
-                className="w-10 sm:w-12 h-0.5 sm:h-1 mt-2 sm:mt-3 rounded-full"
-                style={{
-                  background: `linear-gradient(to right, #111822, #4a7ab5)`
-                }}
-              />
+              <div className="w-10 sm:w-12 h-0.5 sm:h-1 mt-2 sm:mt-3 rounded-full bg-gradient-to-r from-[#111822] to-[#4a7ab5]" />
             </div>
 
             {/* Sections */}
@@ -180,19 +175,16 @@ export default function DisclaimerPage() {
                 <div key={index} className="mt-6 sm:mt-8">
                   {/* Heading with icon */}
                   <div className="flex items-center gap-2 sm:gap-3 mb-2 sm:mb-3">
-                    <div 
-                      className="w-7 h-7 sm:w-8 sm:h-8 rounded-full flex items-center justify-center flex-shrink-0"
-                      style={{ backgroundColor: '#e8edf4' }}
-                    >
-                      <Icon size={16} className="sm:w-4 sm:h-4" style={{ color: '#4a7ab5' }} />
+                    <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-[#e8edf4] flex items-center justify-center flex-shrink-0">
+                      <Icon size={16} className="sm:w-4 sm:h-4 text-[#4a7ab5]" />
                     </div>
-                    <h2 className="text-sm sm:text-base lg:text-xl font-bold leading-tight" style={{ color: '#111822' }}>
+                    <h2 className="text-sm sm:text-base lg:text-xl font-bold text-[#111822] leading-tight">
                       {section.title}
                     </h2>
                   </div>
                   
                   {/* Content */}
-                  <div className="w-full text-sm sm:text-base lg:text-base leading-relaxed text-justify">
+                  <div className="w-full">
                     {Array.isArray(section.content) ? (
                       <div className={isTwoColumn ? "grid grid-cols-1 md:grid-cols-2 gap-x-4 sm:gap-x-6 gap-y-2 sm:gap-y-3 w-full" : "space-y-2 sm:space-y-3 w-full"}>
                         {section.content.map((paragraph, pIndex) => {
@@ -202,12 +194,9 @@ export default function DisclaimerPage() {
 
                           if (paragraph.startsWith("•")) {
                             return (
-                              <div key={pIndex} className="flex items-start gap-2 w-full col-span-2 md:col-span-1 text-justify">
-                                <div 
-                                  className="w-1.5 h-1.5 rounded-full mt-1.5 sm:mt-2 flex-shrink-0"
-                                  style={{ backgroundColor: '#4a7ab5' }}
-                                />
-                                <span className="leading-relaxed text-sm sm:text-base flex-1" style={{ color: '#111822/60' }}>
+                              <div key={pIndex} className="flex items-start gap-2 w-full col-span-2 md:col-span-1">
+                                <div className="w-1.5 h-1.5 rounded-full mt-1.5 sm:mt-2 flex-shrink-0 bg-[#4a7ab5]" />
+                                <span className="text-sm sm:text-base text-[#111822]/70 leading-relaxed flex-1">
                                   {paragraph.substring(2)}
                                 </span>
                               </div>
@@ -215,17 +204,15 @@ export default function DisclaimerPage() {
                           }
 
                           return (
-                            <p key={pIndex} className="w-full col-span-2 leading-relaxed text-sm sm:text-base" style={{ color: '#111822/60' }}>
+                            <p key={pIndex} className="w-full col-span-2 text-sm sm:text-base text-[#111822]/70 leading-relaxed">
                               {paragraph}
                             </p>
                           );
                         })}
                       </div>
                     ) : (
-                      <div className="w-full overflow-x-auto overflow-y-hidden">
-                        <div className="min-w-[640px] sm:min-w-0">
-                          {section.content}
-                        </div>
+                      <div className="text-sm sm:text-base text-[#111822]/70 leading-relaxed w-full">
+                        {section.content}
                       </div>
                     )}
                   </div>
@@ -234,23 +221,18 @@ export default function DisclaimerPage() {
             })}
 
             {/* Footer Note */}
-            <div className="mt-8 sm:mt-10 p-4 sm:p-6 rounded-lg" style={{ backgroundColor: '#f5f7fa' }}>
-              <p className="text-sm sm:text-base text-center" style={{ color: '#111822/60' }}>
+            <div className="mt-8 sm:mt-10 p-4 sm:p-6 rounded-lg bg-[#f5f7fa]">
+              <p className="text-sm sm:text-base text-[#111822]/60 text-center">
                 {BRAND.name}
               </p>
-              <p className="text-sm sm:text-base text-center" style={{ color: '#111822/60' }}>
+              <p className="text-sm sm:text-base text-[#111822]/60 text-center">
                 Operated by Noam Flyers Inc.
               </p>
             </div>
 
             {/* Call to Action */}
-            <div 
-              className="mt-8 sm:mt-10 p-4 sm:p-6 rounded-lg text-white w-full"
-              style={{
-                background: `linear-gradient(to right, #111822, #4a7ab5)`
-              }}
-            >
-              <h3 className="text-base sm:text-lg lg:text-xl font-bold mb-1.5 sm:mb-2 !text-white">
+            <div className="mt-8 sm:mt-10 p-4 sm:p-6 rounded-lg text-white w-full bg-gradient-to-r from-[#111822] to-[#4a7ab5]">
+              <h3 className="text-base sm:text-lg lg:text-xl font-bold mb-1.5 sm:mb-2 text-white">
                 Need Help With Your Travel Plans?
               </h3>
               <p className="text-sm sm:text-base mb-3 sm:mb-4 text-white/80">
@@ -258,11 +240,7 @@ export default function DisclaimerPage() {
               </p>
               <a
                 href={`tel:${CONTACT.phoneRaw}`}
-                className="inline-flex items-center gap-1.5 sm:gap-2 px-4 sm:px-5 py-2 sm:py-2.5 rounded-lg font-semibold transition-all duration-300 shadow-lg hover:scale-105 text-sm sm:text-base"
-                style={{
-                  backgroundColor: '#ffffff',
-                  color: '#111822'
-                }}
+                className="inline-flex items-center gap-1.5 sm:gap-2 px-4 sm:px-5 py-2 sm:py-2.5 rounded-lg font-semibold transition-all duration-300 shadow-lg hover:scale-105 text-sm sm:text-base bg-white text-[#111822]"
               >
                 <Phone size={16} className="sm:w-4 sm:h-4" />
                 Call Us Now: {CONTACT.phone}
