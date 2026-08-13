@@ -196,7 +196,7 @@ export default function DisclaimerPage() {
                             return (
                               <div key={pIndex} className="flex items-start gap-2 w-full col-span-2 md:col-span-1">
                                 <div className="w-1.5 h-1.5 rounded-full mt-1.5 sm:mt-2 flex-shrink-0 bg-[#4a7ab5]" />
-                                <span className="text-sm sm:text-base text-[#111822]/70 leading-relaxed flex-1">
+                                <span className="text-sm sm:text-base text-gray-700 leading-relaxed flex-1">
                                   {paragraph.substring(2)}
                                 </span>
                               </div>
@@ -204,14 +204,14 @@ export default function DisclaimerPage() {
                           }
 
                           return (
-                            <p key={pIndex} className="w-full col-span-2 text-sm sm:text-base text-[#111822]/70 leading-relaxed">
+                            <p key={pIndex} className="w-full col-span-2 text-sm sm:text-base text-gray-700 leading-relaxed">
                               {paragraph}
                             </p>
                           );
                         })}
                       </div>
                     ) : (
-                      <div className="text-sm sm:text-base text-[#111822]/70 leading-relaxed w-full">
+                      <div className="text-sm sm:text-base text-gray-700 leading-relaxed w-full">
                         {section.content}
                       </div>
                     )}
@@ -222,10 +222,10 @@ export default function DisclaimerPage() {
 
             {/* Footer Note */}
             <div className="mt-8 sm:mt-10 p-4 sm:p-6 rounded-lg bg-[#f5f7fa]">
-              <p className="text-sm sm:text-base text-[#111822]/60 text-center">
+              <p className="text-sm sm:text-base text-gray-600 text-center">
                 {BRAND.name}
               </p>
-              <p className="text-sm sm:text-base text-[#111822]/60 text-center">
+              <p className="text-sm sm:text-base text-gray-600 text-center">
                 Operated by Noam Flyers Inc.
               </p>
             </div>
