@@ -5,7 +5,7 @@ import Footer from "@/components/Footer";
 import TravelDeals from "@/components/TravelDeals";
 import ExclusiveDeals from "@/components/ExclusiveDeals";
 import Whypaymore from "@/components/Whypaymoresection";
-import Testimonials from "@/components/Testimonials";
+
 
 export default function Home() {
   return (
@@ -14,10 +14,10 @@ export default function Home() {
       <main>
         <Hero />
         <WhyChooseUs />
-        <TravelDeals />
+        <TravelDeals /> 
         <ExclusiveDeals />
         <Whypaymore />
-        <Testimonials />
+
       </main>
       <Footer />
     </>

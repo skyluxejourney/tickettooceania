@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import './globals.css';
 import { Questrial } from 'next/font/google';
+import StatCounter from '@/components/StatCounter';
 
 // Primary font - Questrial (clean, modern sans-serif)
 const questrialFont = Questrial({
@@ -41,6 +42,7 @@ export default function RootLayout({
       className={`${questrialFont.variable} h-full antialiased`}
     >
       <body className="min-h-full bg-white text-gray-900 flex flex-col font-questrial">
+        <StatCounter />
         {children}
       </body>
     </html>
