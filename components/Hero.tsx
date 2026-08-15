@@ -10,148 +10,293 @@ export default function Hero() {
   const [isHovered, setIsHovered] = useState(false);
 
   return (
-    <section className="relative min-h-screen flex items-center overflow-hidden pt-20 sm:pt-24">
-      {/* Background Image with Clean Dark Overlay */}
-      <div className="absolute inset-0 z-0">
+    <section className="relative min-h-[100svh] overflow-hidden flex items-center pt-16 sm:pt-20 pb-8">
+      {/* =========================================================
+          BACKGROUND – with subtle zoom animation
+      ========================================================= */}
+      <div className="absolute inset-0 z-0 animate-[backgroundZoom_25s_ease-in-out_infinite]">
         <Image
-          src="/images/herobackimage.jpg"
-          alt="Ticket to Oceania - Travel Experiences"
+          src="/images/tiltback.jpg"
+          alt="Travel Experiences"
           fill
-          className="object-cover object-center"
           priority
           quality={100}
+          className="object-cover object-center"
         />
-        {/* Clean Dark Overlay - No Bluish Tint */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/60 to-black/75" />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-black/30" />
-        <div className="absolute inset-0 bg-black/20" />
-        
-        {/* Blue Tint for Oceania Theme */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#4a7ab5]/20 to-transparent" />
+
+        {/* Very subtle dark overlay (5%) – just enough for depth */}
+        <div className="absolute inset-0 bg-black/5" />
+
+        {/* Subtle blue tint for atmosphere */}
+        <div className="absolute inset-0 bg-gradient-to-r from-[#315d91]/10 via-transparent to-transparent" />
       </div>
 
-      {/* Premium Texture Overlay */}
+      {/* Premium texture – barely visible (2% opacity) */}
       <div className="absolute inset-0 z-0 opacity-[0.02] bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCIgdmlld0JveD0iMCAwIDYwIDYwIj48ZyBmaWxsPSIjZmZmIj48cGF0aCBkPSJNMzYgMzRjMCAxLjEuOSAyIDIgMnMyLS45IDItMi0uOS0yLTItMiAtMiAuOS0yIDJ6LTEyIDRjMCAxLjEuOSAyIDIgMnMyLS45IDItMi0uOS0yLTItMiAtMiAuOS0yIDJ6Ii8+PC9nPjwvc3ZnPg==')]" />
 
-      {/* Decorative Accent Line - Top */}
-      <div className="absolute top-0 left-0 right-0 z-10 h-1 bg-gradient-to-r from-[#4a7ab5] via-white to-[#7ba0cc]" />
+      {/* Top line – stays */}
+      <div className="absolute top-0 left-0 right-0 z-20 h-[2px] bg-gradient-to-r from-[#4a7ab5] via-white/70 to-[#7ba0cc]" />
 
-      {/* Content */}
-      <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
-        <div className="max-w-6xl mx-auto text-center">
-          {/* Main Heading - Two Lines Only */}
-          <h1 className="max-w-4xl mx-auto mb-3 sm:mb-5">
-            <span className="block text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-[1.1] tracking-tight drop-shadow-[0_2px_30px_rgba(0,0,0,0.5)]">
-              Discover the World's
-            </span>
-            <span className="relative inline-block">
-              <span className="relative z-10 text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#4a7ab5] via-[#7ba0cc] to-[#4a7ab5] leading-[1.1] tracking-tight italic drop-shadow-[0_2px_30px_rgba(0,0,0,0.3)]">
-                Best Travel Experiences
-              </span>
-              <span className="absolute -bottom-0.5 left-0 w-full h-1 bg-gradient-to-r from-[#4a7ab5]/50 to-[#4a7ab5]/10 rounded-full blur-sm" />
-            </span>
-          </h1>
+      {/* =========================================================
+          HERO CONTENT
+      ========================================================= */}
+      <div className="relative z-10 w-full">
+        <div className="container mx-auto px-5 sm:px-8 lg:px-12 xl:px-16">
+          <div className="max-w-7xl mx-auto">
 
-          {/* Subtitle - Centered */}
-          <p className="text-white/70 text-sm sm:text-base md:text-lg max-w-2xl mx-auto mb-6 sm:mb-8 font-light tracking-wide leading-relaxed drop-shadow-[0_2px_20px_rgba(0,0,0,0.4)]">
-            Curated luxury journeys to the most breathtaking destinations.
-            <br className="hidden sm:block" />
-            Let us craft your perfect escape.
-          </p>
+            {/* Left content – with staggered slide-from-left */}
+            <div className="w-full lg:w-[60%] xl:w-[56%] py-8 sm:pt-10 lg:pt-12">
 
-          {/* Search Engine Component */}
-          <div className="relative z-20">
-            <SearchEngine />
+              {/* Eyebrow – slide from left */}
+              <div className="flex items-center gap-3 mb-3 sm:mb-4 opacity-0 animate-[slideLeft_0.6s_ease-out_0.1s_forwards]">
+                <span className="h-px w-8 bg-[#4a7ab5]" />
+                <span className="text-[#4a7ab5] text-[10px] sm:text-[11px] font-semibold uppercase tracking-[0.25em] drop-shadow-[0_2px_4px_rgba(255,255,255,0.3)]">
+                  Your Journey Begins Here
+                </span>
+              </div>
+
+              {/* Heading – slide from left, delayed */}
+              <h1 className="mb-4 sm:mb-5 opacity-0 animate-[slideLeft_0.7s_ease-out_0.2s_forwards]">
+                <span
+                  className="
+                    block
+                    text-transparent
+                    bg-clip-text
+                    bg-gradient-to-r
+                    from-[#111822]
+                    to-[#6397d6]
+                    text-3xl
+                    sm:text-3xl
+                    md:text-4xl
+                    lg:text-[3.2rem]
+                    xl:text-[3.5rem]
+                    font-bold
+                    leading-[1]
+                    tracking-[-0.035em]
+                    drop-shadow-[0_2px_15px_rgba(255,255,255,0.2)]
+                  "
+                >
+                  Explore the World,
+                </span>
+                <span
+                  className="
+                    block
+                    mt-1
+                    text-transparent
+                    bg-clip-text
+                    bg-gradient-to-r
+                    from-[#05162b]
+                    to-[#799dce]
+                    text-3xl
+                    sm:text-4xl
+                    md:text-5xl
+                    lg:text-[3rem]
+                    xl:text-[3.5rem]
+                    font-semibold
+                    italic
+                    leading-[1]
+                    tracking-[-0.035em]
+                    drop-shadow-[0_2px_15px_rgba(255,255,255,0.2)]
+                  "
+                >
+                  One Journey at a Time.
+                </span>
+              </h1>
+
+              {/* Decorative line – slide from left */}
+              <div className="flex items-center gap-2 mb-4 opacity-0 animate-[slideLeft_0.8s_ease-out_0.3s_forwards]">
+                <div className="h-[2px] w-12 bg-gradient-to-r from-[#4a7ab5] to-[#111822]" />
+                <div className="h-[2px] w-2 bg-[#111822]/50" />
+                <div className="h-[2px] w-2 bg-[#111822]/25" />
+              </div>
+
+              {/* Description – slide from left */}
+              <p
+                className="
+                  max-w-lg
+                  text-[#111822]/80
+                  text-xs
+                  sm:text-sm
+                  md:text-[15px]
+                  font-light
+                  leading-6
+                  tracking-wide
+                  mb-3
+                  drop-shadow-[0_2px_10px_rgba(255,255,255,0.3)]
+                  opacity-0
+                  animate-[slideLeft_0.7s_ease-out_0.3s_forwards]
+                "
+              >
+                Discover personalized and hassle-free travel experiences,
+                carefully crafted around your preferences. Your next
+                adventure starts here.
+              </p>
+            </div>
+
+            {/* =====================================================
+                SEARCH ENGINE – slide from left, slightly later
+            ===================================================== */}
+            <div className="w-full flex opacity-0 animate-[slideLeft_0.8s_ease-out_0.5s_forwards]">
+              <div className="w-full max-w-4xl">
+                <SearchEngine />
+              </div>
+            </div>
+
+            {/* =====================================================
+                TRUST INDICATORS – slide from left, last
+            ===================================================== */}
+            <div className="mt-5 flex flex-wrap items-center gap-x-5 gap-y-2 text-[#111822]/70 text-[10px] sm:text-xs drop-shadow-[0_2px_8px_rgba(255,255,255,0.2)] opacity-0 animate-[slideLeft_0.8s_ease-out_0.7s_forwards]">
+              <div className="flex items-center gap-1.5">
+                <span className="h-1.5 w-1.5 rounded-full bg-green-500 shadow-[0_0_7px_rgba(34,197,94,0.7)]" />
+                <span>24/7 Travel Assistance</span>
+              </div>
+              <div className="hidden sm:block h-3 w-px bg-[#111822]/20" />
+              <div className="flex items-center gap-1.5">
+                <span className="h-1.5 w-1.5 rounded-full bg-[#4a7ab5]" />
+                <span>Best Travel Support</span>
+              </div>
+              <div className="hidden sm:block h-3 w-px bg-[#111822]/20" />
+              <div className="flex items-center gap-1.5">
+                <span className="h-1.5 w-1.5 rounded-full bg-[#4a7ab5]" />
+                <span>Hassle-Free Booking</span>
+              </div>
+            </div>
           </div>
         </div>
       </div>
 
-      {/* Decorative Accent Line - Bottom */}
-      <div className="absolute bottom-0 left-0 right-0 z-10 h-1 bg-gradient-to-r from-[#7ba0cc] via-white to-[#4a7ab5]" />
-
-      {/* Scroll Indicator - Positioned at bottom of section */}
-      <div className="absolute bottom-2 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1.5 text-white/25 hover:text-[#4a7ab5]/50 transition-colors cursor-pointer z-10">
-        <div className="w-4 h-6 border border-white/15 rounded-full flex justify-center p-1">
-          <div className="w-0.5 h-1.5 bg-white/40 rounded-full animate-bounce" />
-        </div>
+      {/* =========================================================
+          SCROLL INDICATOR – dark, fade in (no slide)
+      ========================================================= */}
+      <div className="absolute bottom-4 right-8 lg:right-12 hidden md:flex flex-col items-center gap-1.5 text-[#111822]/50 animate-[fadeIn_1s_ease-out_1s_forwards] opacity-0">
+        <span className="text-[8px] uppercase tracking-[0.3em] [writing-mode:vertical-rl] drop-shadow-[0_2px_4px_rgba(255,255,255,0.3)]">
+          Scroll
+        </span>
+        <div className="w-px h-7 bg-gradient-to-b from-[#111822]/50 to-transparent" />
       </div>
 
-      {/* Professional Floating Call Widget - Fixed pointer events */}
-      <div 
+      {/* Bottom line – stays */}
+      <div className="absolute bottom-0 left-0 right-0 z-20 h-[2px] bg-gradient-to-r from-[#7ba0cc] via-white/60 to-[#4a7ab5]" />
+
+      {/* =========================================================
+          FLOATING CALL WIDGET – with gentle floating animation
+      ========================================================= */}
+      <div
         className="fixed bottom-5 right-4 sm:bottom-6 sm:right-6 z-50 flex items-center gap-3"
-        style={{ pointerEvents: 'none' }}
+        style={{ pointerEvents: "none" }}
       >
-        {/* Chat Card - Only appears when hovering the button directly */}
+        {/* Chat Card – fade in on hover */}
         <div
           className={`
             hidden sm:block
-            w-[260px]
-            rounded-sm
-            border border-gray-200/80
+            w-[255px]
+            border border-white/30
             bg-white/95
             backdrop-blur-xl
-            p-4
-            shadow-[0_20px_60px_rgba(74,122,181,0.18)]
-            transition-all duration-400 
+            p-3.5
+            shadow-[0_20px_60px_rgba(0,0,0,0.25)]
+            transition-all duration-300
             ease-[cubic-bezier(0.34,1.56,0.64,1)]
-            will-change-transform
-            ${isHovered 
-              ? 'opacity-100 translate-x-0 scale-100 pointer-events-auto' 
-              : 'opacity-0 translate-x-4 scale-95 pointer-events-none'
+            ${
+              isHovered
+                ? "opacity-100 translate-x-0 scale-100 pointer-events-auto"
+                : "opacity-0 translate-x-4 scale-95 pointer-events-none"
             }
           `}
         >
           <div className="flex items-start gap-3">
-            {/* Support Icon */}
-            <div className="relative mt-0.5 flex h-10 w-10 items-center justify-center rounded-full bg-[#e8f0fe] transition-transform duration-300 group-hover:scale-105">
-              <span className="absolute inset-0 rounded-full bg-[#4a7ab5]/20 animate-ping"></span>
-              <Headphones className="relative z-10 h-5 w-5 text-[#4a7ab5] transition-transform duration-300 group-hover:rotate-12" />
+            <div className="relative flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[#e8f0fe]">
+              <span className="absolute inset-0 rounded-full bg-[#4a7ab5]/20 animate-ping" />
+              <Headphones className="relative z-10 h-4 w-4 text-[#4a7ab5]" />
             </div>
-
-            {/* Text */}
             <div className="min-w-0 flex-1">
               <div className="mb-1 flex items-center gap-2">
-                <span className="relative flex h-2 w-2">
-                  <span className="absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75 animate-ping"></span>
-                  <span className="relative inline-flex h-2 w-2 rounded-full bg-green-500"></span>
+                <span className="relative flex h-1.5 w-1.5">
+                  <span className="absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75 animate-ping" />
+                  <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-green-500" />
                 </span>
-                <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-gray-500">
+                <p className="text-[9px] font-semibold uppercase tracking-[0.15em] text-gray-500">
                   24/7 Call Assistance
                 </p>
               </div>
-              <p className="text-base font-bold text-gray-900 transition-colors duration-300">
+              <p className="text-sm font-bold text-gray-900">
                 {CONTACT.phone}
               </p>
-              <p className="mt-1 text-xs leading-relaxed text-gray-500">
+              <p className="mt-0.5 text-[11px] leading-relaxed text-gray-500">
                 Flight booking, changes and cancellations.
               </p>
             </div>
           </div>
         </div>
 
-        {/* Circle Call Button */}
+        {/* Call Button – floating + pulse rings */}
         <a
           href={`tel:${CONTACT.phoneRaw}`}
           aria-label="Call support"
-          className="relative flex h-16 w-16 items-center justify-center rounded-full text-white shadow-[0_12px_32px_rgba(74,122,181,0.45)] transition-all duration-400 ease-[cubic-bezier(0.34,1.56,0.64,1)] hover:scale-110 hover:shadow-[0_20px_45px_rgba(74,122,181,0.55)] focus:outline-none focus:ring-4 focus:ring-[#4a7ab5]/30 active:scale-95 will-change-transform bg-gradient-to-r from-[#4a7ab5] to-[#7ba0cc]"
-          style={{ pointerEvents: 'auto' }}
+          className="
+            group
+            relative
+            flex
+            h-14
+            w-14
+            shrink-0
+            items-center
+            justify-center
+            rounded-full
+            text-white
+            bg-gradient-to-br
+            from-[#4a7ab5]
+            to-[#7ba0cc]
+            shadow-[0_10px_28px_rgba(74,122,181,0.45)]
+            transition-all
+            duration-300
+            hover:scale-110
+            hover:shadow-[0_18px_40px_rgba(74,122,181,0.55)]
+            focus:outline-none
+            focus:ring-4
+            focus:ring-[#4a7ab5]/30
+            active:scale-95
+            animate-[float_3s_ease-in-out_infinite]
+          "
+          style={{ pointerEvents: "auto" }}
           onMouseEnter={() => setIsHovered(true)}
           onMouseLeave={() => setIsHovered(false)}
         >
-          {/* Wave Rings */}
-          <span className="absolute inset-0 rounded-full border-2 border-[#4a7ab5]/60 animate-[ping_2s_ease-in-out_infinite]"></span>
-          <span className="absolute inset-[-4px] rounded-full border-2 border-[#4a7ab5]/40 animate-[pulse_2.5s_ease-in-out_infinite_0.5s]"></span>
-          <span className="absolute inset-[-8px] rounded-full border-2 border-[#4a7ab5]/25 animate-[pulse_3s_ease-in-out_infinite_1s]"></span>
-          
-          {/* Inner Circle */}
-          <span className="relative z-10 flex h-12 w-12 items-center justify-center rounded-full bg-white/12 backdrop-blur-md border border-white/20 group-hover:bg-white/20 transition-all duration-300">
-            <Phone className="h-6 w-6 group-hover:scale-110 transition-transform duration-300" />
-          </span>
+          {/* Wave rings */}
+          <span className="absolute inset-0 rounded-full border-2 border-[#4a7ab5]/60 animate-[ping_2s_ease-in-out_infinite]" />
+          <span className="absolute inset-[-5px] rounded-full border border-[#7ba0cc]/40 animate-[pulse_2.5s_ease-in-out_infinite_0.5s]" />
 
-          {/* Hover glow */}
-          <span className="absolute inset-0 rounded-full bg-gradient-to-br from-[#4a7ab5]/0 to-[#7ba0cc]/0 group-hover:from-[#4a7ab5]/30 group-hover:to-[#7ba0cc]/30 transition-all duration-500 blur-xl"></span>
+          {/* Inner circle */}
+          <span className="relative z-10 flex h-10 w-10 items-center justify-center rounded-full bg-white/10 backdrop-blur-md border border-white/25 transition-all duration-300 group-hover:bg-white/20">
+            <Phone className="h-5 w-5 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6" />
+          </span>
         </a>
       </div>
+
+      {/* =========================================================
+          GLOBAL ANIMATIONS – slideLeft, fadeIn, float, backgroundZoom
+      ========================================================= */}
+      <style dangerouslySetInnerHTML={{
+        __html: `
+          @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+          }
+          @keyframes slideLeft {
+            0% { opacity: 0; transform: translateX(-40px); }
+            100% { opacity: 1; transform: translateX(0); }
+          }
+          @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-8px); }
+            100% { transform: translateY(0px); }
+          }
+          @keyframes backgroundZoom {
+            0% { transform: scale(1); }
+            100% { transform: scale(1.08); }
+          }
+        `
+      }} />
     </section>
   );
 }

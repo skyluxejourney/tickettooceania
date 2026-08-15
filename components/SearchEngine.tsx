@@ -17,7 +17,6 @@ import {
   AlertCircle,
 } from "lucide-react";
 
-// Sample location data with airport codes
 const locations = [
   { name: "New York", code: "JFK", country: "USA" },
   { name: "Los Angeles", code: "LAX", country: "USA" },
@@ -95,7 +94,6 @@ export default function SearchEngine() {
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
-  // Auto-hide error message after 4 seconds
   useEffect(() => {
     if (errorMessage) {
       const timer = setTimeout(() => {
@@ -106,16 +104,12 @@ export default function SearchEngine() {
   }, [errorMessage]);
 
   const handleSearch = async () => {
-    // Show "not in service" message
     setErrorMessage("Flight search is currently not in service. Please try again later.");
-    
-    // Still show loading state briefly for UX
     setIsLoading(true);
     await new Promise(resolve => setTimeout(resolve, 1500));
     setIsLoading(false);
   };
 
-  // Helper functions for calendar
   const getDaysInMonth = (month: number, year: number) => {
     return new Date(year, month + 1, 0).getDate();
   };
@@ -126,7 +120,6 @@ export default function SearchEngine() {
 
   const handleDateSelect = (day: number, isDepart: boolean) => {
     const date = new Date(currentYear, currentMonth, day);
-    // Format date as MM-DD-YYYY
     const month = String(date.getMonth() + 1).padStart(2, '0');
     const dayStr = String(date.getDate()).padStart(2, '0');
     const year = date.getFullYear();
@@ -159,15 +152,14 @@ export default function SearchEngine() {
     const selected = isDepart ? selectedDepartDate : selectedReturnDate;
 
     return (
-      <div className="bg-white shadow-2xl p-4 w-80 z-[9999] relative border border-[#E2E8F0]">
-        {/* Header with "Choose the Departure" or "Choose the Return" */}
-        <div className="text-center mb-3">
-          <span className="text-xs font-semibold text-[#111822] tracking-wider uppercase">
+      <div className="bg-white shadow-2xl p-3 w-72 z-[9999] relative border border-[#E2E8F0]">
+        <div className="text-center mb-2">
+          <span className="text-[10px] font-semibold text-[#111822] tracking-wider uppercase">
             {isDepart ? 'Choose the Departure' : 'Choose the Return'}
           </span>
         </div>
         
-        <div className="flex items-center justify-between mb-3">
+        <div className="flex items-center justify-between mb-2">
           <button
             onClick={() => {
               if (currentMonth === 0) {
@@ -179,9 +171,9 @@ export default function SearchEngine() {
             }}
             className="p-1 hover:bg-[#f5f7fa] rounded-full transition-colors"
           >
-            <ChevronLeft size={18} className="text-[#111822]" />
+            <ChevronLeft size={16} className="text-[#111822]" />
           </button>
-          <span className="font-semibold text-[#111822]">
+          <span className="font-semibold text-[#111822] text-xs">
             {new Date(currentYear, currentMonth).toLocaleString('default', { month: 'long', year: 'numeric' })}
           </span>
           <button
@@ -195,21 +187,21 @@ export default function SearchEngine() {
             }}
             className="p-1 hover:bg-[#f5f7fa] rounded-full transition-colors"
           >
-            <ChevronRight size={18} className="text-[#111822]" />
+            <ChevronRight size={16} className="text-[#111822]" />
           </button>
         </div>
         
-        <div className="grid grid-cols-7 gap-1 mb-2">
+        <div className="grid grid-cols-7 gap-0.5 mb-1.5">
           {['SU', 'MO', 'TU', 'WE', 'TH', 'FR', 'SA'].map((day) => (
-            <div key={day} className="text-center text-xs font-bold text-[#111822] py-1">
+            <div key={day} className="text-center text-[10px] font-bold text-[#111822] py-1">
               {day}
             </div>
           ))}
         </div>
         
-        <div className="grid grid-cols-7 gap-1">
+        <div className="grid grid-cols-7 gap-0.5">
           {Array.from({ length: firstDay }, (_, i) => (
-            <div key={`empty-${i}`} className="h-8" />
+            <div key={`empty-${i}`} className="h-7" />
           ))}
           {Array.from({ length: days }, (_, i) => {
             const day = i + 1;
@@ -224,7 +216,7 @@ export default function SearchEngine() {
                 onClick={() => !isPast && handleDateSelect(day, isDepart)}
                 disabled={isPast}
                 className={`
-                  h-8 w-full rounded-full text-sm font-medium transition-all duration-200
+                  h-7 w-full rounded-full text-xs font-medium transition-all duration-200
                   ${isPast 
                     ? 'text-gray-300 cursor-not-allowed line-through' 
                     : 'text-[#111822] hover:bg-[#f5f7fa]'
@@ -243,30 +235,30 @@ export default function SearchEngine() {
   };
 
   return (
-    <div className="bg-white shadow-2xl max-w-6xl mx-auto p-4 relative z-[100] border border-[#E2E8F0]">
-      {/* Error Message with Red Icon */}
+    <div className="bg-white shadow-2xl w-full p-3 relative z-[100] border border-[#E2E8F0]">
+      {/* Error Message */}
       {errorMessage && (
-        <div className="mb-4 p-3 bg-red-50 border border-red-200 rounded-lg text-red-700 text-sm flex items-center justify-between animate-in slide-in-from-top-1 duration-200">
+        <div className="mb-3 p-2.5 bg-red-50 border border-red-200 rounded text-red-700 text-xs flex items-center justify-between">
           <div className="flex items-center gap-2">
-            <AlertCircle size={18} className="text-red-600 flex-shrink-0" />
+            <AlertCircle size={14} className="text-red-600 flex-shrink-0" />
             <span>{errorMessage}</span>
           </div>
           <button
             onClick={() => setErrorMessage("")}
             className="text-red-500 hover:text-red-700 transition-colors"
           >
-            <X size={16} />
+            <X size={14} />
           </button>
         </div>
       )}
 
-      {/* Trip Type Toggle */}
-      <div className="flex items-center gap-1 mb-4">
+      {/* Trip Type Toggle - smaller */}
+      <div className="flex items-center gap-1 mb-2.5">
         <button
           onClick={() => setTripType("roundtrip")}
-          className={`px-4 py-1.5 rounded-full text-xs sm:text-sm font-medium transition-all duration-300 ${
+          className={`px-3 py-1 rounded-full text-[10px] sm:text-xs font-medium transition-all duration-300 ${
             tripType === "roundtrip"
-              ? "bg-gradient-to-r from-[#111822] to-[#4a7ab5] text-white shadow-lg shadow-[#111822]/30"
+              ? "bg-gradient-to-r from-[#111822] to-[#4a7ab5] text-white shadow-md shadow-[#111822]/30"
               : "text-[#111822]/60 hover:text-[#111822] hover:bg-[#f5f7fa]"
           }`}
         >
@@ -274,9 +266,9 @@ export default function SearchEngine() {
         </button>
         <button
           onClick={() => setTripType("oneway")}
-          className={`px-4 py-1.5 rounded-full text-xs sm:text-sm font-medium transition-all duration-300 ${
+          className={`px-3 py-1 rounded-full text-[10px] sm:text-xs font-medium transition-all duration-300 ${
             tripType === "oneway"
-              ? "bg-gradient-to-r from-[#111822] to-[#4a7ab5] text-white shadow-lg shadow-[#111822]/30"
+              ? "bg-gradient-to-r from-[#111822] to-[#4a7ab5] text-white shadow-md shadow-[#111822]/30"
               : "text-[#111822]/60 hover:text-[#111822] hover:bg-[#f5f7fa]"
           }`}
         >
@@ -284,9 +276,9 @@ export default function SearchEngine() {
         </button>
         <button
           onClick={() => setTripType("multicity")}
-          className={`px-4 py-1.5 rounded-full text-xs sm:text-sm font-medium transition-all duration-300 ${
+          className={`px-3 py-1 rounded-full text-[10px] sm:text-xs font-medium transition-all duration-300 ${
             tripType === "multicity"
-              ? "bg-gradient-to-r from-[#111822] to-[#4a7ab5] text-white shadow-lg shadow-[#111822]/30"
+              ? "bg-gradient-to-r from-[#111822] to-[#4a7ab5] text-white shadow-md shadow-[#111822]/30"
               : "text-[#111822]/60 hover:text-[#111822] hover:bg-[#f5f7fa]"
           }`}
         >
@@ -294,11 +286,12 @@ export default function SearchEngine() {
         </button>
       </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-4">
+      {/* Compact Grid */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-2">
         {/* Leaving From */}
         <div className="relative lg:col-span-1" ref={leavingRef}>
-          <div className="absolute left-3.5 top-1/2 -translate-y-1/2 text-[#111822] z-10">
-            <PlaneTakeoff size={16} className="block" />
+          <div className="absolute left-3 top-1/2 -translate-y-1/2 text-[#111822] z-10">
+            <PlaneTakeoff size={14} className="block" />
           </div>
           <input
             type="text"
@@ -309,7 +302,7 @@ export default function SearchEngine() {
               setShowLeavingHints(true);
             }}
             onFocus={() => setShowLeavingHints(true)}
-            className="w-full bg-[#f5f7fa] border border-[#E2E8F0] pl-10 pr-8 py-3 text-[#111822] placeholder-[#94A3B8] focus:outline-none focus:border-[#111822] focus:ring-2 focus:ring-[#111822]/20 transition-all duration-300 text-sm h-[52px]"
+            className="w-full bg-[#f5f7fa] border border-[#E2E8F0] pl-8 pr-6 py-2 text-[#111822] placeholder-[#94A3B8] focus:outline-none focus:border-[#111822] focus:ring-2 focus:ring-[#111822]/20 transition-all duration-300 text-xs h-[42px]"
           />
           {leavingFrom && (
             <button
@@ -317,14 +310,13 @@ export default function SearchEngine() {
                 setLeavingFrom("");
                 setShowLeavingHints(false);
               }}
-              className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600 z-10"
+              className="absolute right-2.5 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600 z-10"
             >
-              <X size={14} />
+              <X size={12} />
             </button>
           )}
-          {/* Hints Dropdown - Wider */}
           {showLeavingHints && filteredLeaving.length > 0 && (
-            <div className="absolute bottom-full left-0 w-[280px] mb-1 bg-white shadow-lg border border-[#E2E8F0] max-h-52 overflow-y-auto z-[9999] custom-scrollbar">
+            <div className="absolute bottom-full left-0 w-[240px] mb-1 bg-white shadow-lg border border-[#E2E8F0] max-h-44 overflow-y-auto z-[9999] custom-scrollbar">
               {filteredLeaving.map((loc) => (
                 <button
                   key={loc.code}
@@ -332,20 +324,20 @@ export default function SearchEngine() {
                     setLeavingFrom(`${loc.name} (${loc.code})`);
                     setShowLeavingHints(false);
                   }}
-                  className="w-full text-left px-4 py-3 hover:bg-[#f5f7fa] transition-colors flex items-center justify-between border-b border-[#E2E8F0] last:border-0"
+                  className="w-full text-left px-3 py-2 hover:bg-[#f5f7fa] transition-colors flex items-center justify-between border-b border-[#E2E8F0] last:border-0"
                 >
-                  <div className="flex items-center gap-3 flex-1 min-w-0">
-                    <MapPin size={14} className="text-[#111822] flex-shrink-0" />
+                  <div className="flex items-center gap-2 flex-1 min-w-0">
+                    <MapPin size={12} className="text-[#111822] flex-shrink-0" />
                     <div className="flex-1 min-w-0">
-                      <span className="text-sm font-medium text-[#111822]">
+                      <span className="text-xs font-medium text-[#111822]">
                         {loc.name}
                       </span>
-                      <span className="text-xs text-[#111822]/50 ml-2">
+                      <span className="text-[10px] text-[#111822]/50 ml-1.5">
                         {loc.country}
                       </span>
                     </div>
                   </div>
-                  <div className="text-xs font-semibold text-[#111822] bg-[#f5f7fa] px-3 py-1 rounded-full flex-shrink-0 ml-2">
+                  <div className="text-[10px] font-semibold text-[#111822] bg-[#f5f7fa] px-2 py-0.5 rounded-full flex-shrink-0 ml-2">
                     {loc.code}
                   </div>
                 </button>
@@ -356,8 +348,8 @@ export default function SearchEngine() {
 
         {/* Departing To */}
         <div className="relative lg:col-span-1" ref={departingRef}>
-          <div className="absolute left-3.5 top-1/2 -translate-y-1/2 text-[#111822] z-10">
-            <PlaneLanding size={16} className="block" />
+          <div className="absolute left-3 top-1/2 -translate-y-1/2 text-[#111822] z-10">
+            <PlaneLanding size={14} className="block" />
           </div>
           <input
             type="text"
@@ -368,7 +360,7 @@ export default function SearchEngine() {
               setShowDepartingHints(true);
             }}
             onFocus={() => setShowDepartingHints(true)}
-            className="w-full bg-[#f5f7fa] border border-[#E2E8F0] pl-10 pr-8 py-3 text-[#111822] placeholder-[#94A3B8] focus:outline-none focus:border-[#111822] focus:ring-2 focus:ring-[#111822]/20 transition-all duration-300 text-sm h-[52px]"
+            className="w-full bg-[#f5f7fa] border border-[#E2E8F0] pl-8 pr-6 py-2 text-[#111822] placeholder-[#94A3B8] focus:outline-none focus:border-[#111822] focus:ring-2 focus:ring-[#111822]/20 transition-all duration-300 text-xs h-[42px]"
           />
           {departingTo && (
             <button
@@ -376,14 +368,13 @@ export default function SearchEngine() {
                 setDepartingTo("");
                 setShowDepartingHints(false);
               }}
-              className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600 z-10"
+              className="absolute right-2.5 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600 z-10"
             >
-              <X size={14} />
+              <X size={12} />
             </button>
           )}
-          {/* Hints Dropdown - Wider */}
           {showDepartingHints && filteredDeparting.length > 0 && (
-            <div className="absolute bottom-full left-0 w-[280px] mb-1 bg-white shadow-lg border border-[#E2E8F0] max-h-52 overflow-y-auto z-[9999] custom-scrollbar">
+            <div className="absolute bottom-full left-0 w-[240px] mb-1 bg-white shadow-lg border border-[#E2E8F0] max-h-44 overflow-y-auto z-[9999] custom-scrollbar">
               {filteredDeparting.map((loc) => (
                 <button
                   key={loc.code}
@@ -391,20 +382,20 @@ export default function SearchEngine() {
                     setDepartingTo(`${loc.name} (${loc.code})`);
                     setShowDepartingHints(false);
                   }}
-                  className="w-full text-left px-4 py-3 hover:bg-[#f5f7fa] transition-colors flex items-center justify-between border-b border-[#E2E8F0] last:border-0"
+                  className="w-full text-left px-3 py-2 hover:bg-[#f5f7fa] transition-colors flex items-center justify-between border-b border-[#E2E8F0] last:border-0"
                 >
-                  <div className="flex items-center gap-3 flex-1 min-w-0">
-                    <MapPin size={14} className="text-[#111822] flex-shrink-0" />
+                  <div className="flex items-center gap-2 flex-1 min-w-0">
+                    <MapPin size={12} className="text-[#111822] flex-shrink-0" />
                     <div className="flex-1 min-w-0">
-                      <span className="text-sm font-medium text-[#111822]">
+                      <span className="text-xs font-medium text-[#111822]">
                         {loc.name}
                       </span>
-                      <span className="text-xs text-[#111822]/50 ml-2">
+                      <span className="text-[10px] text-[#111822]/50 ml-1.5">
                         {loc.country}
                       </span>
                     </div>
                   </div>
-                  <div className="text-xs font-semibold text-[#111822] bg-[#f5f7fa] px-3 py-1 rounded-full flex-shrink-0 ml-2">
+                  <div className="text-[10px] font-semibold text-[#111822] bg-[#f5f7fa] px-2 py-0.5 rounded-full flex-shrink-0 ml-2">
                     {loc.code}
                   </div>
                 </button>
@@ -415,17 +406,17 @@ export default function SearchEngine() {
 
         {/* Depart Date */}
         <div className="relative lg:col-span-1" ref={departCalendarRef}>
-          <div className="absolute left-3.5 top-1/2 -translate-y-1/2 text-[#111822] z-10">
-            <Calendar size={16} className="block" />
+          <div className="absolute left-3 top-1/2 -translate-y-1/2 text-[#111822] z-10">
+            <Calendar size={14} className="block" />
           </div>
           <button
             onClick={() => {
               setShowDepartCalendar(!showDepartCalendar);
               setShowReturnCalendar(false);
             }}
-            className="w-full lg:w-45 bg-[#f5f7fa] border border-[#E2E8F0] pl-10 pr-8 py-3 text-[#111822] text-left focus:outline-none focus:border-[#111822] focus:ring-2 focus:ring-[#111822]/20 transition-all duration-300 text-sm h-[52px]"
+            className="w-full bg-[#f5f7fa] border border-[#E2E8F0] pl-8 pr-6 py-2 text-[#111822] text-left focus:outline-none focus:border-[#111822] focus:ring-2 focus:ring-[#111822]/20 transition-all duration-300 text-xs h-[42px]"
           >
-            {departDate ? formatDisplayDate(departDate) : <span className="text-[#94A3B8]">Departure Date</span>}
+            {departDate ? formatDisplayDate(departDate) : <span className="text-[#94A3B8]">Departure</span>}
           </button>
           {departDate && (
             <button
@@ -433,12 +424,11 @@ export default function SearchEngine() {
                 setDepartDate("");
                 setSelectedDepartDate(null);
               }}
-              className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600 z-10"
+              className="absolute right-2.5 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600 z-10"
             >
-              <X size={14} />
+              <X size={12} />
             </button>
           )}
-          {/* Calendar - Positioned Above */}
           {showDepartCalendar && (
             <div className="absolute bottom-full left-0 mb-1 z-[9999]">
               {renderCalendar(true)}
@@ -446,20 +436,20 @@ export default function SearchEngine() {
           )}
         </div>
 
-        {/* Return Date - Only show for round trip */}
+        {/* Return Date */}
         {tripType === "roundtrip" && (
           <div className="relative lg:col-span-1" ref={returnCalendarRef}>
-            <div className="absolute left-3.5 top-1/2 -translate-y-1/2 text-[#111822] z-10">
-              <Calendar size={16} className="block" />
+            <div className="absolute left-3 top-1/2 -translate-y-1/2 text-[#111822] z-10">
+              <Calendar size={14} className="block" />
             </div>
             <button
               onClick={() => {
                 setShowReturnCalendar(!showReturnCalendar);
                 setShowDepartCalendar(false);
               }}
-              className="w-full bg-[#f5f7fa] border border-[#E2E8F0] pl-10 pr-8 py-3 text-[#111822] text-left focus:outline-none focus:border-[#111822] focus:ring-2 focus:ring-[#111822]/20 transition-all duration-300 text-sm h-[52px]"
+              className="w-full bg-[#f5f7fa] border border-[#E2E8F0] pl-8 pr-6 py-2 text-[#111822] text-left focus:outline-none focus:border-[#111822] focus:ring-2 focus:ring-[#111822]/20 transition-all duration-300 text-xs h-[42px]"
             >
-              {returnDate ? formatDisplayDate(returnDate) : <span className="text-[#94A3B8]">Return Date</span>}
+              {returnDate ? formatDisplayDate(returnDate) : <span className="text-[#94A3B8]">Return</span>}
             </button>
             {returnDate && (
               <button
@@ -467,12 +457,11 @@ export default function SearchEngine() {
                   setReturnDate("");
                   setSelectedReturnDate(null);
                 }}
-                className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600 z-10"
+                className="absolute right-2.5 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600 z-10"
               >
-                <X size={14} />
+                <X size={12} />
               </button>
             )}
-            {/* Calendar - Positioned Above */}
             {showReturnCalendar && (
               <div className="absolute bottom-full left-0 mb-1 z-[9999]">
                 {renderCalendar(false)}
@@ -481,38 +470,36 @@ export default function SearchEngine() {
           </div>
         )}
 
-        {/* Custom Passengers Selector */}
+        {/* Passengers */}
         <div className="relative lg:col-span-1" ref={passengerRef}>
-          <div className="absolute left-3.5 top-1/2 -translate-y-1/2 text-[#111822] z-10">
-            <Users size={16} className="block" />
+          <div className="absolute left-3 top-1/2 -translate-y-1/2 text-[#111822] z-10">
+            <Users size={14} className="block" />
           </div>
           <button
             onClick={() => setShowPassengerDropdown(!showPassengerDropdown)}
-            className="w-full bg-[#f5f7fa] border border-[#E2E8F0] pl-10 pr-8 py-3 text-[#111822] text-left focus:outline-none focus:border-[#111822] focus:ring-2 focus:ring-[#111822]/20 transition-all duration-300 text-sm h-[52px] flex items-center"
+            className="w-full bg-[#f5f7fa] border border-[#E2E8F0] pl-8 pr-6 py-2 text-[#111822] text-left focus:outline-none focus:border-[#111822] focus:ring-2 focus:ring-[#111822]/20 transition-all duration-300 text-xs h-[42px] flex items-center"
           >
             <span>{passengerCount} {passengerCount === 1 ? 'Passenger' : 'Passengers'}</span>
           </button>
-
-          {/* Passenger Dropdown */}
           {showPassengerDropdown && (
-            <div className="absolute bottom-full left-0 mb-1 bg-white shadow-lg border border-[#E2E8F0] p-4 w-56 z-[9999]">
+            <div className="absolute bottom-full left-0 mb-1 bg-white shadow-lg border border-[#E2E8F0] p-3 w-48 z-[9999]">
               <div className="flex items-center justify-between">
-                <span className="text-sm font-medium text-[#111822]">Passengers</span>
-                <div className="flex items-center gap-3">
+                <span className="text-xs font-medium text-[#111822]">Passengers</span>
+                <div className="flex items-center gap-2">
                   <button
                     onClick={() => setPassengerCount(Math.max(1, passengerCount - 1))}
-                    className="w-7 h-7 rounded-full bg-[#f5f7fa] hover:bg-[#111822]/20 flex items-center justify-center transition-colors"
+                    className="w-6 h-6 rounded-full bg-[#f5f7fa] hover:bg-[#111822]/20 flex items-center justify-center transition-colors"
                   >
-                    <Minus size={14} className="text-[#111822]" />
+                    <Minus size={12} className="text-[#111822]" />
                   </button>
-                  <span className="text-sm font-semibold text-[#111822] w-4 text-center">
+                  <span className="text-xs font-semibold text-[#111822] w-4 text-center">
                     {passengerCount}
                   </span>
                   <button
                     onClick={() => setPassengerCount(Math.min(10, passengerCount + 1))}
-                    className="w-7 h-7 rounded-full bg-[#f5f7fa] hover:bg-[#111822]/20 flex items-center justify-center transition-colors"
+                    className="w-6 h-6 rounded-full bg-[#f5f7fa] hover:bg-[#111822]/20 flex items-center justify-center transition-colors"
                   >
-                    <Plus size={14} className="text-[#111822]" />
+                    <Plus size={12} className="text-[#111822]" />
                   </button>
                 </div>
               </div>
@@ -520,25 +507,25 @@ export default function SearchEngine() {
           )}
         </div>
 
-        {/* Search Button - Rectangular with loading state */}
+        {/* Search Button */}
         <div className="lg:col-span-1 flex items-center">
           <button
             onClick={handleSearch}
             disabled={isLoading}
-            className={`w-full bg-gradient-to-r from-[#111822] to-[#4a7ab5] text-white transition-all duration-300 flex items-center justify-center h-[52px] px-6 ${
+            className={`w-full bg-gradient-to-r from-[#111822] to-[#4a7ab5] text-white transition-all duration-300 flex items-center justify-center h-[42px] px-4 text-xs font-medium ${
               isLoading 
                 ? 'opacity-80 cursor-not-allowed' 
-                : 'hover:from-[#2a3a5a] hover:to-[#7ba0cc] hover:scale-[1.02] active:scale-95 shadow-lg shadow-[#111822]/30 hover:shadow-[#111822]/40'
+                : 'hover:from-[#2a3a5a] hover:to-[#7ba0cc] hover:scale-[1.02] active:scale-95 shadow-md shadow-[#111822]/30 hover:shadow-[#111822]/40'
             }`}
           >
             {isLoading ? (
               <>
-                <Loader2 size={20} className="mr-2 animate-spin" />
+                <Loader2 size={14} className="mr-1.5 animate-spin" />
                 <span>Searching...</span>
               </>
             ) : (
               <>
-                <Search size={20} className="mr-2" />
+                <Search size={14} className="mr-1.5" />
                 <span>Search</span>
               </>
             )}
@@ -546,10 +533,9 @@ export default function SearchEngine() {
         </div>
       </div>
 
-      {/* Custom Scrollbar Styles */}
       <style jsx>{`
         .custom-scrollbar::-webkit-scrollbar {
-          width: 4px;
+          width: 3px;
         }
         .custom-scrollbar::-webkit-scrollbar-track {
           background: #f5f7fa;
