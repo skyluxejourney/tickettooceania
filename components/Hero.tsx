@@ -12,9 +12,9 @@ export default function Hero() {
   return (
     <section className="relative min-h-[100svh] overflow-hidden flex items-center pt-16 sm:pt-20 pb-8">
       {/* =========================================================
-          BACKGROUND – with subtle zoom animation
+          BACKGROUND – Bright & clear for dark text
       ========================================================= */}
-      <div className="absolute inset-0 z-0 animate-[backgroundZoom_25s_ease-in-out_infinite]">
+      <div className="absolute inset-0 z-0">
         <Image
           src="/images/tiltback.jpg"
           alt="Travel Experiences"
@@ -64,7 +64,7 @@ export default function Hero() {
                     bg-clip-text
                     bg-gradient-to-r
                     from-[#111822]
-                    to-[#6397d6]
+                    to-[#5588c7]
                     text-3xl
                     sm:text-3xl
                     md:text-4xl
@@ -86,7 +86,7 @@ export default function Hero() {
                     bg-clip-text
                     bg-gradient-to-r
                     from-[#05162b]
-                    to-[#799dce]
+                    to-[#7997c2]
                     text-3xl
                     sm:text-4xl
                     md:text-5xl
@@ -274,7 +274,7 @@ export default function Hero() {
       </div>
 
       {/* =========================================================
-          GLOBAL ANIMATIONS – slideLeft, fadeIn, float, backgroundZoom
+          GLOBAL ANIMATIONS – slideLeft, fadeIn, float
       ========================================================= */}
       <style dangerouslySetInnerHTML={{
         __html: `
@@ -290,10 +290,6 @@ export default function Hero() {
             0% { transform: translateY(0px); }
             50% { transform: translateY(-8px); }
             100% { transform: translateY(0px); }
-          }
-          @keyframes backgroundZoom {
-            0% { transform: scale(1); }
-            100% { transform: scale(1.08); }
           }
         `
       }} />
