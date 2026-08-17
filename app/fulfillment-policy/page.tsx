@@ -17,8 +17,15 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { BRAND, CONTACT } from "@/app/constants";
 
+interface Section {
+  icon: any;
+  title: string;
+  content: string[];
+  twoColumn?: boolean;
+}
+
 export default function FulfillmentPolicyPage() {
-  const sections = [
+  const sections: Section[] = [
     {
       icon: FileText,
       title: "Fulfillment Policy",
@@ -328,9 +335,9 @@ export default function FulfillmentPolicyPage() {
     <>
       <Header />
       <div className="min-h-screen bg-white pt-20">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-10">
+        <div className="w-full px-4 sm:px-6 lg:px-8 py-8 sm:py-10">
           {/* Breadcrumb */}
-          <nav className="flex items-center gap-2 text-sm mb-6">
+          <nav className="flex items-center gap-2 text-sm mb-6 max-w-7xl mx-auto">
             <NextLink href="/" className="text-[#4a7ab5] hover:text-[#7ba0cc] transition-colors">
               Home
             </NextLink>
@@ -338,7 +345,7 @@ export default function FulfillmentPolicyPage() {
             <span className="text-[#111822]/60">Fulfillment Policy</span>
           </nav>
 
-          <div className="max-w-4xl mx-auto">
+          <div className="max-w-7xl mx-auto">
             {/* Header Section */}
             <div className="mb-8">
               <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#111822] leading-tight">
@@ -350,7 +357,7 @@ export default function FulfillmentPolicyPage() {
               <div className="w-12 h-1 bg-gradient-to-r from-[#111822] to-[#4a7ab5] rounded-full mt-3" />
             </div>
 
-            {/* Sections */}
+            {/* Sections - Full Width with Left Alignment */}
             {sections.map((section, index) => {
               const Icon = section.icon;
               return (
@@ -363,12 +370,12 @@ export default function FulfillmentPolicyPage() {
                       {section.title}
                     </h2>
                   </div>
-                  <div className="space-y-3 text-sm sm:text-base text-[#111822]/70 leading-relaxed ml-11">
+                  <div className="space-y-3 text-sm sm:text-base text-[#111822]/70 leading-relaxed ml-0 sm:ml-11">
                     {section.content.map((paragraph, pIndex) => {
                       // Check if paragraph starts with "•" to render as list item
                       if (paragraph.startsWith("•")) {
                         return (
-                          <div key={pIndex} className="flex items-start gap-2 ml-4">
+                          <div key={pIndex} className="flex items-start gap-2 ml-0 sm:ml-4">
                             <div className="w-1.5 h-1.5 rounded-full mt-2 flex-shrink-0 bg-[#4a7ab5]" />
                             <span className="text-justify">{paragraph.substring(2)}</span>
                           </div>

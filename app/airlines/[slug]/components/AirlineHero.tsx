@@ -32,7 +32,7 @@ export default function AirlineHero({ airline }: AirlineHeroProps) {
           priority
           quality={100}
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/60 to-black/75" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/40 to-black/30" />
         <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-black/30" />
         <div className="absolute inset-0 bg-black/20" />
         

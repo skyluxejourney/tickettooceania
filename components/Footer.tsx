@@ -40,6 +40,7 @@ export default function Footer() {
     { name: "Advertiser Disclosure", href: "/advertiser-disclosure-policy" },
     { name: "Cookies Policy", href: "/cookies-policy" },
     { name: "Cancellation and Refund", href: "/cancellation-refund-policy" },
+    { name: "Post Ticketing Fees Service", href: "/post-ticketing-fees-service" },
     { name: "Taxes and Fees", href: "/taxes-fees-policy" },
   ];
 
