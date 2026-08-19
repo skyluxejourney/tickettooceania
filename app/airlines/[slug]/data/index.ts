@@ -1,5 +1,3 @@
-// app/airlines/[slug]/data/index.ts
-
 import type { AirlineData } from '../airlines-data';
 import { qantasAirlinesData } from './qantas-airlines';
 import { airNewZealandData } from './air-new-zealand';
