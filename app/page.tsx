@@ -6,7 +6,7 @@ import Footer from "@/components/Footer";
 import TravelDeals from "@/components/TravelDeals";
 import ExclusiveDeals from "@/components/ExclusiveDeals";
 import Whypaymore from "@/components/Whypaymoresection";
-import { COMPANY, CONTACT, SOCIAL } from "./constants";
+import { COMPANY, CONTACT } from "./constants";
 
 
 const homePageSchema = {

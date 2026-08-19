@@ -84,7 +84,7 @@ export default function AirlinePolicy({ airline }: AirlinePolicyProps) {
                 {/* Background */}
                 <div className="absolute inset-0">
                   <Image
-                    src="/images/changeflightposter.jpg"
+                    src="/images/flightbanner.jpg"
                     alt="Change or Cancel Flight"
                     fill
                     className="object-cover object-center"
@@ -290,7 +290,7 @@ export default function AirlinePolicy({ airline }: AirlinePolicyProps) {
           <div className="lg:w-[30%] flex items-start justify-center">
             <div className="sticky top-24">
               <Image
-                src="/images/reviewusnowposter.png"
+                src="/images/sidepannel.png"
                 alt="Review Us Now"
                 width={400}
                 height={600}
