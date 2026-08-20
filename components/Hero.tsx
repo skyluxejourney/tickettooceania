@@ -42,7 +42,7 @@ export default function Hero() {
       ========================================================= */}
       <div className="relative z-10 w-full">
         <div className="container mx-auto px-5 sm:px-8 lg:px-12 xl:px-16">
-          <div className="max-w-7xl mx-auto">
+          <div className="max-w-auto mx-auto">
 
             {/* Left content – with staggered slide-from-left */}
             <div className="w-full lg:w-[60%] xl:w-[56%] py-8 sm:pt-10 lg:pt-12">

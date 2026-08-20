@@ -170,7 +170,7 @@ export default function TravelDealsSection() {
   return (
     <section className="py-16 sm:py-20 lg:py-20 bg-gradient-to-b from-[#f5f7fa] to-white">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="max-w-6xl mx-auto">
+        <div className="max-w-auto mx-auto">
           {/* Heading - Left Aligned */}
           <div className="mb-6 sm:mb-8">
             <div className="inline-flex items-center gap-2 bg-[#f5f7fa] rounded-full px-4 py-1.5 mb-4">
@@ -321,7 +321,7 @@ export default function TravelDealsSection() {
             {/* Close Button */}
             <button
               onClick={closeModal}
-              className="absolute top-4 right-4 text-[#111822]/40 hover:text-[#111822] transition-colors z-10"
+              className="absolute top-4 right-4 text-white hover:text-[#111822] transition-colors z-10"
             >
               <X size={24} />
             </button>

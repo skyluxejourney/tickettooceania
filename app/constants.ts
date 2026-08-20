@@ -5,7 +5,7 @@ export const COMPANY = {
   email: "Reservations@tickettooceania.com",
   phone: "+1-8555387343",
   phoneRaw: "18555387343",
-  address: "Basement Plot Number 35 Sector 11 Dwarka New Delhi 110075",
+  address: "Alexandria, VA 22310",
   year: new Date().getFullYear(),
 };
 
@@ -24,7 +24,7 @@ export const CONTACT = {
 export const BRAND = {
   name: COMPANY.name,
   tagline: "Travel & Adventures",
-  logo: "/logo/ticketlogo.png", // Consider updating logo path if you have a new logo
+  logo: "/logo/ticketlogo.png", 
   favicon: "/favicon.ico",
 };
 

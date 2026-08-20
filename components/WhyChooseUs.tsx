@@ -25,7 +25,7 @@ export default function WhyTrustSection() {
   return (
     <section className="py-12 sm:py-16 lg:pt-20 lg:py-5 bg-[#f5f7fa]">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="max-w-6xl mx-auto">
+        <div className="max-w-auto mx-auto">
           {/* Heading - Left Aligned */}
           <div className="mb-8 sm:mb-10">
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#111822] leading-tight">
